@@ -1,0 +1,15 @@
+<ActionBar title="Movie Rater">
+    <ActionItem icon="font://&#xf2f5;" class="fas h2" android.position="left" (tap)="logout()"></ActionItem>
+</ActionBar>
+
+<StackLayout class="page">
+    <Image src="~/app/MR_logo.png" stretch="aspectFit"></Image>
+    <ListView [items]="movies">
+        <ng-template let-item="item">
+            <StackLayout>
+                <Label [nsRouterLink]="['/item', item.id]" [text]="item.title"></Label>
+            </StackLayout>
+        </ng-template>
+    </ListView>
+    <Button text="New Movie" (tap)="newMovie()"></Button>
+</StackLayout>

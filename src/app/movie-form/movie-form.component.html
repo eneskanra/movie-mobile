@@ -1,0 +1,13 @@
+<ActionBar title="{{movie?.title}}">
+    <NavigationButton icon="font://&#xf053;" class="fas h5" (tap)="goBack()"></NavigationButton>
+    <ActionItem icon="font://&#xf044;" class="fas h2" android.position="right" (tap)="editClicked()"></ActionItem>
+</ActionBar>
+
+<StackLayout class="page" *ngIf="movie">
+   <Label class="h2" text="Title"></Label>
+   <TextField class="h2" [(ngModel)]="movie.title"></TextField>
+   <Label class="h2" text="Description"></Label>
+   <TextView class="h2" [(ngModel)]="movie.description"></TextView>
+   <Button text="{{movie.id ? 'Update' : 'Create'}}" (tap)="saveForm()" class="-primary -rounded-lg"></Button>
+   <Button *ngIf="movie.id" text="Delete" (tap)="removeMovie()" class="my-button"></Button>
+</StackLayout>

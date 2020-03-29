@@ -1,0 +1,23 @@
+<ActionBar title="{{movie?.title}}">
+    <NavigationButton icon="font://&#xf053;" class="fas h5" (tap)="goBack()"></NavigationButton>
+    <ActionItem icon="font://&#xf044;" class="fas h2" android.position="right" (tap)="editClicked()"></ActionItem>
+</ActionBar>
+
+<StackLayout  class="page">
+    <StackLayout class="m-15" orientation="horizontal">
+        <Label text="&#xf005;" class="fas h2" [ngClass]="{'orange': movie?.avg_rating > 0}"></Label>
+        <Label text="&#xf005;" class="fas h2" [ngClass]="{'orange': movie?.avg_rating > 1}"></Label>
+        <Label text="&#xf005;" class="fas h2" [ngClass]="{'orange': movie?.avg_rating > 2}"></Label>
+        <Label text="&#xf005;" class="fas h2" [ngClass]="{'orange': movie?.avg_rating > 3}"></Label>
+        <Label text="&#xf005;" class="fas h2" [ngClass]="{'orange': movie?.avg_rating > 4}"></Label>
+        <Label text="({{movie?.no_of_ratings}})" class="h2"></Label>
+    </StackLayout>
+    <Label class="h2" [text]="movie?.description"></Label>
+    <StackLayout orientation="horizontal">
+        <Label text="Rate it !!!" class="h2"></Label>
+        <Label *ngFor="let rate of [1,2,3,4,5]" text="&#xf005;" class="h1" 
+            [ngClass]="{'fas purple': highlight >= rate, 'far white': highlight < rate}"
+            (tap)="setHighLight(rate)"></Label>
+        <Button text="Rate" (tap)="rateClicked()"></Button>
+    </StackLayout>
+</StackLayout>

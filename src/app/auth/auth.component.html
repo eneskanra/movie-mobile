@@ -1,0 +1,12 @@
+<ActionBar title="Movie Rater">
+</ActionBar>
+<StackLayout class="page">
+    <Label class="h2" text="Username"></Label>
+    <TextField class="h2" [(ngModel)]="auth.username" autocapitalizationType="none"></TextField>
+    <Label class="h2" text="Password"></Label>
+    <TextField class="h2" [(ngModel)]="auth.password" secure="true" autocapitalizationType="none"></TextField>
+    <Button text="{{registerMode ? 'Register':'Login'}}" (tap)="submitForm()" class="-primary -rounded-lg"></Button>
+
+    <Label (tap)="registerMode = true" *ngIf="!registerMode" text="Don't have an account? Register here."></Label>
+    <Label (tap)="registerMode = false" *ngIf="registerMode" text="You have an account? Login here."></Label>
+ </StackLayout>
